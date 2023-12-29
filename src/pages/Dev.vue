@@ -24,17 +24,20 @@ if (devStore.imgState.length === 0) {
   <div class="dev">
     <div class="identification mb-5">
       <div
-        class="content overflow-hidden relative flex border-4 rounded-xl p-3 font-black w-fit font-SmileySans m-auto"
+        class="content overflow-hidden relative flex border-4 rounded-xl p-3 font-black w-fit font-SmileySans m-auto cursor-pointer"
       >
         <div class="before z-50">Ganto</div>
         <div class="middle z-50">.</div>
         <div class="after z-50">Me</div>
       </div>
     </div>
-    <div class="img relative">
-      <img class="w-full m-auto" :src="'https://files.cevno.cn/files/' + img" />
+    <div class="img relative overflow-hidden rounded-xl">
+      <img
+        class="w-full m-auto max-h-96 object-contain"
+        :src="'https://files.cevno.cn/files/' + img"
+      />
       <button
-        class="opacity-0 absolute right-2 bottom-5 w-12 h-6 bg-sky-900/50 text-sm text-cyan-400 backdrop-blur-md shadow-inner shadow-white hover:shadow-sky-300"
+        class="opacity-0 absolute rounded right-2 bottom-5 w-12 h-6 bg-sky-900/50 text-sm text-cyan-400 backdrop-blur-md shadow-inner shadow-white hover:shadow-sky-300"
         @click="recover()"
       >
         重获

@@ -22,7 +22,7 @@ const getWH = () => {
 <template>
   <div
     draggable="true"
-    class="bookmark shadow-inner shadow-black/50"
+    class="bookmark shadow-inner shadow-black/50 rounded"
     ref="bookmarkRef"
     @mouseenter="getWH"
   >
@@ -31,7 +31,7 @@ const getWH = () => {
       class="inline-block relative w-full h-full font-black leading-none"
       :href="bookmark.link"
       target="ganto"
-      ><span class="right-0 bottom-0">{{ bookmark.name }}</span></a
+      ><span class="right-2 bottom-2">{{ bookmark.name }}</span></a
     >
   </div>
 </template>
@@ -40,58 +40,35 @@ const getWH = () => {
 .bookmark {
   width: 100px;
   height: 100px;
-  font-size: 19px;
+  font-size: 16px;
   background: v-bind(
     '(typeof bookmark.backgroundColor === "string") ? bookmark.backgroundColor : `linear-gradient(${bookmark.backgroundColor.deg}deg, ${bookmark.backgroundColor.start}, ${bookmark.backgroundColor.end})`'
   );
   color: v-bind("bookmark.color");
-  // border: v-bind('bookmark.border? `1px solid ${bookmark.border}` : `none`');
-  padding: 8px;
 
-  // &:hover {
-  //   animation: bookmarkAnimate 1s ease-in-out forwards;
-  // }
-
-  // @keyframes bookmarkAnimate {
-  //   0% {
-  //     opacity: 1;
-  //     filter: blur(0);
-  //   }
-  //   25% {
-  //     opacity: .5;
-  //     filter: blur(2px);
-  //   }
-  //   50% {
-  //     opacity: 1;
-  //     filter: blur(0);
-  //   }
-  //   75% {
-  //     opacity: .5;
-  //     filter: blur(2px);
-  //   }
-  //   100% {
-  //     opacity: 1;
-  //     filter: blur(0);
-  //   }
-  // }
+  &:hover {
+    a {
+      span {
+        animation: hor 0.5s infinite linear alternate,
+          ver 1.2s infinite linear alternate;
+      }
+    }
+  }
 
   a {
-    &:hover span {
-      animation: hor 0.5s infinite linear alternate,
-        ver 1.2s infinite linear alternate;
-    }
+    padding: 8px;
 
     span {
       position: absolute;
 
       @keyframes hor {
         to {
-          right: calc(100% - v-bind("textW+`px`"));
+          right: calc(100% - v-bind("textW+8+`px`"));
         }
       }
       @keyframes ver {
         to {
-          bottom: calc(100% - v-bind("textH+`px`"));
+          bottom: calc(100% - v-bind("textH+8+`px`"));
         }
       }
     }
