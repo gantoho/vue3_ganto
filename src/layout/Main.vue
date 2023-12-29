@@ -7,13 +7,9 @@
         </KeepAlive>
       </RouterView>
 
-      <template #fallback>
-        正在加载...
-      </template>
+      <template #fallback> 正在加载... </template>
     </Suspense>
   </main>
 </template>
 
-<style lang='scss' scoped>
-  
-</style>
+<style lang="scss" scoped></style>

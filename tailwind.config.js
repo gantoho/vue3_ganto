@@ -10,6 +10,8 @@ module.exports = {
     },
     fontFamily: {
       Roboto: ["Roboto, sans-serif"],
+      MiSans: ["MiSans, sans-serif"],
+      SmileySans: ["SmileySans, sans-serif"],
     },
     container: {
       padding: "2rem",
