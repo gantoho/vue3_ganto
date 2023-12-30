@@ -41,10 +41,10 @@ const toExternal = (link: string) => {
   <div class="tabbar flex items-center">
     <RouterLink v-for="item in tabbarData" custom :to="item.to" :key="item.name + item.to" v-slot="{ isActive, navigate }">
       <template v-if="item.type === 'router'">
-        <span class="cursor-pointer font-light hover:text-blue-500 hover:font-black" :class="{ active: isActive }" @click="navigate">{{ item.name }}</span>
+        <span class="cursor-pointer font-light hover:font-black" :class="{ active: isActive }" @click="navigate">{{ item.name }}</span>
       </template>
       <template v-else>
-        <span class="cursor-alias font-light hover:text-blue-500 hover:font-black" @click="toExternal(item.to)">{{ item.name }}</span>
+        <span class="cursor-alias font-light hover:font-black" @click="toExternal(item.to)">{{ item.name }}</span>
       </template>
     </RouterLink>
   </div>
@@ -52,6 +52,9 @@ const toExternal = (link: string) => {
 
 <style lang='scss' scoped>
 .tabbar {
+  font-size: 18px;
+  border-bottom: 4px solid rgb(89, 89, 89);
+  width: fit-content;
   span {
     position: relative;
     &::after {
@@ -62,17 +65,16 @@ const toExternal = (link: string) => {
       background-color: transparent;
       position: absolute;
       left: 0;
-      bottom: -2px;
+      bottom: -4px;
     }
   }
   span + span {
     margin-left: 10px;
   }
   span.active {
-    color: #287bf0;
     font-weight: 900;
     &::after {
-      background-color: #287bf0;
+      background-color: #ffffff;
     }
   }
 }

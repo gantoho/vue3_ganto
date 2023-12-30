@@ -22,7 +22,7 @@ const getWH = () => {
 <template>
   <div
     draggable="true"
-    class="bookmark shadow-inner shadow-black/50 rounded"
+    class="bookmark shadow-inner shadow-black/50 rounded-lg"
     ref="bookmarkRef"
     @mouseenter="getWH"
   >
@@ -38,8 +38,8 @@ const getWH = () => {
 
 <style lang="scss" scoped>
 .bookmark {
-  width: 100px;
-  height: 100px;
+  width: 85px;
+  height: 85px;
   font-size: 16px;
   background: v-bind(
     '(typeof bookmark.backgroundColor === "string") ? bookmark.backgroundColor : `linear-gradient(${bookmark.backgroundColor.deg}deg, ${bookmark.backgroundColor.start}, ${bookmark.backgroundColor.end})`'
