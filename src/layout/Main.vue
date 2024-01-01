@@ -2,9 +2,9 @@
   <main class="main py-5">
     <Suspense>
       <RouterView v-slot="{ Component }">
-        <KeepAlive include="Dev">
+        <!-- <KeepAlive include="Dev"> -->
           <component :is="Component" />
-        </KeepAlive>
+        <!-- </KeepAlive> -->
       </RouterView>
 
       <template #fallback> 正在加载... </template>
