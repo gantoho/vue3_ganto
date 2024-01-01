@@ -5,7 +5,7 @@ export default [
   },
   {
     path: '/home',
-    name: 'layout_home',
+    name: 'layoutHome',
     component: () => import('@/layout/Layout.vue'),
     children: [
       {
@@ -17,7 +17,7 @@ export default [
   },
   {
     path: '/bookmarks',
-    name: 'layout_bookmarks',
+    name: 'layoutBookmarks',
     component: () => import('@/layout/Layout.vue'),
     children: [
       {
@@ -29,7 +29,7 @@ export default [
   },
   {
     path: '/dev',
-    name: 'layout_dev',
+    name: 'layoutDev',
     component: () => import('@/layout/Layout.vue'),
     children: [
       {
@@ -41,7 +41,7 @@ export default [
   },
   {
     path: '/404',
-    name: 'layout_not_found',
+    name: 'layoutNotFound',
     component: () => import('@/layout/Layout.vue'),
     children: [
       {
@@ -53,6 +53,7 @@ export default [
   },
   {
     path: '/:pathMatch(.*)*',
+    name: 'redirectNotFound',
     redirect: '/404'
   }
 ]

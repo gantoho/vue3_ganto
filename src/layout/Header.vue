@@ -5,11 +5,11 @@ import Tabbar from '@/components/Tabbar.vue'
 <template>
   <header class="header pt-32 bg-cover">
     <div id="author">
-      <span class="author text-5xl font-black">干徒</span>
+      <span class="author text-5xl font-semibold">干徒</span>
       <i class="shine"></i>
     </div>
-    <div class="text-sm font-light mt-2 mb-2">
-      <p>没有设计就是最好的设计</p>
+    <div class="motto text-sm font-light mt-2 mb-2">
+      <p>这很酷</p>
     </div>
     <Tabbar/>
   </header>
@@ -20,20 +20,37 @@ import Tabbar from '@/components/Tabbar.vue'
     #author {
       position: relative;
       span.author {
-        text-shadow: 1px 1px 0px #000;
-        // background: linear-gradient(90deg, #ffd744, #93ff93 );
-        // background-clip: text;
-        // -webkit-background-clip: text;
-        // -webkit-text-fill-color: transparent;
+        transition: all 1s;
+        background: linear-gradient(90deg, #fff, #fff );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      span.author:hover {
+        & + i.shine {
+          width: 5em;
+          height: 5em;
+          left: 0.5em;
+          filter: blur(30px);
+        }
       }
       i.shine {
+        transition: all .5s;
         display: inline-block;
-        box-shadow: 0 0 180px 75px rgba(255, 255, 255, 0.7);
+        width: 10em;
+        height: 10em;
+        left: -2em;
+        filter: blur(60px);
+        border-radius: 50%;
+        background-image: linear-gradient( 135deg, #ffd744bb 50%, #93ff93bb 50% );
         position: absolute;
         top: 50%;
-        left: 4em;
+        transform: translateY(-50%);
         z-index: -1;
       }
+    }
+    .motto {
+      text-shadow: 0.1em 0.04em 0.04em rgba(0, 0, 0, 0.5);
     }
   }
 </style>

@@ -26,7 +26,7 @@ const tabbarData: Array<ITabbarItem> = [
     type: 'link',
   },
   {
-    name: 'Dev',
+    name: '开发',
     to: '/dev',
     type: 'router',
   },
@@ -61,11 +61,16 @@ const toExternal = (link: string) => {
       content: '';
       display: inline-block;
       height: 4px;
-      width: 100%;
-      background-color: transparent;
+      width: 0%;
+      background-color: #ffffff;
       position: absolute;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: -4px;
+      transition: all 0.3s;
+    }
+    &:hover::after {
+      width: 100%;
     }
   }
   span + span {
@@ -74,7 +79,7 @@ const toExternal = (link: string) => {
   span.active {
     font-weight: 900;
     &::after {
-      background-color: #ffffff;
+      width: 100%;
     }
   }
 }

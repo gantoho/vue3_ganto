@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import {  ref } from 'vue'
+import { ref } from 'vue'
 import { getImg } from '@/api/getImg'
 
 export default defineStore('devStore', () => {

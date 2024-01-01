@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import type { Ref } from "vue";
 import useDevStore from "@/store/devStore";
+import Nameplate from "@/components/Nameplate.vue";
 // import debounce from '@/utils/debounce'
 
 defineOptions({
@@ -10,12 +11,12 @@ defineOptions({
 
 const img: Ref<string> = ref("");
 const devStore = useDevStore();
-const recover = async () => {
+const regain = async () => {
   await devStore.getData();
   img.value = devStore.imgState;
 };
 if (devStore.imgState.length === 0) {
-  await recover();
+  await regain();
 } else {
   img.value = devStore.imgState;
 }
@@ -23,15 +24,13 @@ if (devStore.imgState.length === 0) {
 
 <template>
   <div class="dev">
-    <div class="identification mb-5">
-      <div
-        class="content overflow-hidden relative flex border-4 rounded-xl p-3 font-black w-fit font-SmileySans m-auto cursor-pointer"
-      >
+    <Nameplate>
+      <template #default>
         <div class="before z-50">Ganto</div>
         <div class="middle z-50">.</div>
         <div class="after z-50">Me</div>
-      </div>
-    </div>
+      </template>
+    </Nameplate>
     <div class="img relative overflow-hidden rounded-xl">
       <img
         class="w-full m-auto max-h-96 object-contain"
@@ -39,9 +38,9 @@ if (devStore.imgState.length === 0) {
       />
       <button
         class="opacity-0 absolute rounded right-2 bottom-5 w-12 h-6 bg-sky-900/50 text-sm text-cyan-400 backdrop-blur-md shadow-inner shadow-white hover:shadow-sky-300"
-        @click="recover()"
+        @click="regain()"
       >
-        重获
+        Regain
       </button>
     </div>
   </div>
@@ -49,58 +48,6 @@ if (devStore.imgState.length === 0) {
 
 <style lang="scss" scoped>
 .dev {
-  .identification {
-    .content {
-      font-size: 25px;
-      text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s;
-      transform: perspective(500px) rotateY(-15deg) rotateX(15deg);
-      box-shadow: 10px 10px 10px 0px rgb(117, 117, 117);
-
-      &:hover {
-        text-shadow: -4px -2px 2px rgba(0, 0, 0, 0.2);
-        box-shadow: 0px 0px 10px 0px rgb(117, 117, 117);
-        transform: perspective(500px) rotateY(0deg);
-
-        &::before {
-          right: calc(-100% + 5px);
-        }
-      }
-
-      &::before {
-        content: "";
-        display: inline-block;
-        width: 200%;
-        height: 200%;
-        background-image: linear-gradient(
-          135deg,
-          #747e8c,
-          #747e8c,
-          #c2c6d8,
-          #747e8c,
-          #747e8c
-        );
-        position: absolute;
-        right: -5px;
-        bottom: 50%;
-        transition: all 0.3s;
-        transform: translateY(50%);
-      }
-
-      &::after {
-        content: "";
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #000000;
-        position: absolute;
-        left: 5px;
-        top: 5px;
-        border: 1px solid #c2c6d8;
-      }
-    }
-  }
   .img {
     button {
       transition: all 0.3s;
