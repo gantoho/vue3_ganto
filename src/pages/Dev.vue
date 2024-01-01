@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import useDevStore from "@/store/devStore";
 import Nameplate from "@/components/Nameplate.vue";
+import { onMounted } from "vue";
 // import debounce from '@/utils/debounce'
 
 defineOptions({
   name: "Dev",
 });
-
+onMounted(() => {
+  devStore.getData();
+})
 const devStore = useDevStore();
 const regain = () => {
   devStore.getData();
