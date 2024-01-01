@@ -8,6 +8,8 @@ export default defineStore('devStore', () => {
   const getData = async () => {
     imgState.value = await getImg({ method: 'get' }) as any
   }
+
+  getData()
   
   return {
     imgState,
