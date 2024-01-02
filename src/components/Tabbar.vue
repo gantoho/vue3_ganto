@@ -50,8 +50,19 @@ const toExternal = (link: string) => {
   window.open(link)
 }
 
-const changeBtn = (event: Function) => {
-  event()
+const changeBtn = (event: Function, $eve: MouseEvent) => {
+  document.documentElement.style.setProperty('--x', $eve.clientX + 'px')
+  document.documentElement.style.setProperty('--y', $eve.clientY + 'px')
+  // 判断浏览器是否支持document.startViewTransition
+  if ((document as any).startViewTransition) {
+    // 如果支持就使用document.startViewTransition方法
+    (document as any).startViewTransition(() => {
+      event()
+    })
+  } else {
+    // 如果不支持，就使用最原始的方式，切换主题
+    event()
+  }
 }
 </script>
 
@@ -67,10 +78,10 @@ const changeBtn = (event: Function) => {
       <template v-else="item.type === 'btn'">
         <span class="cursor-pointer" v-if="item.name === 'Sunny'">
           <el-icon size="25" >
-            <Sunny @click="changeBtn(item.event ? item.event : ()=>{})" />
+            <Sunny @click="changeBtn(item.event ? item.event : ()=>{}, $event)" />
           </el-icon>
         </span>
-        <span v-else class="cursor-alias font-light hover:font-black" @click="changeBtn(item.event ? item.event : ()=>{})">{{ item.name }}</span>
+        <span v-else class="cursor-alias font-light hover:font-black" @click="changeBtn(item.event ? item.event : ()=>{}, $event)">{{ item.name }}</span>
       </template>
     </RouterLink>
   </div>
