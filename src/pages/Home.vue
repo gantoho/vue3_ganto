@@ -47,7 +47,7 @@ const callMe: Array<ICallMe> = [
       <p class="block">你可以在此处找到我：</p>
       <p class="flex gap-x-3 gap-y-1 flex-wrap">
         <a
-          class="border-b-2 border-gray-700 hover:border-white hover:transition hover:duration-1000"
+          class="text-link border-b-2 transition duration-1000"
           v-for="item in callMe"
           :key="item.platform"
           :href="item.link"
@@ -59,4 +59,14 @@ const callMe: Array<ICallMe> = [
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.home {
+  .text-link {
+    border-color: var(--g-home-link-border);
+    
+    &:hover {
+      border-color: var(--g-home-link-hover);
+    }
+  }
+}
+</style>

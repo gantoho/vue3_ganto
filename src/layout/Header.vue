@@ -21,10 +21,6 @@ import Tabbar from '@/components/Tabbar.vue'
       position: relative;
       span.author {
         transition: all 1s;
-        background: linear-gradient(90deg, #fff, #fff );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
       }
       span.author:hover {
         & + i.shine {
@@ -48,9 +44,6 @@ import Tabbar from '@/components/Tabbar.vue'
         transform: translateY(-50%);
         z-index: -1;
       }
-    }
-    .motto {
-      text-shadow: 0.1em 0.04em 0.04em rgba(0, 0, 0, 0.5);
     }
   }
 </style>

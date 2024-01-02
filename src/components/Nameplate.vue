@@ -20,6 +20,7 @@
 
 <style lang='scss' scoped>
 .identification {
+  color: #fff;
   .content {
     font-size: 25px;
     text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.2);

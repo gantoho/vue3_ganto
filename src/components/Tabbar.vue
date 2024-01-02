@@ -1,50 +1,76 @@
 <script setup lang='ts'>
+import { useDark, useToggle } from '@vueuse/core'
+import { Sunny } from '@element-plus/icons-vue'
+
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
+
 interface ITabbarItem {
-  name: string
-  to: string,
-  type: 'router' | 'link',
+  type: 'router' | 'link' | 'btn',
+  nameType?: 'text' | 'component',
+  name: string,
+  to?: string,
+  link?: string,
+  event?: Function
 }
 const tabbarData: Array<ITabbarItem> = [
   {
+    type: 'router',
     name: '首页',
     to: '/home',
-    type: 'router',
   },
   {
+    type: 'router',
     name: '书签',
     to: '/bookmarks',
+  },
+  {
     type: 'router',
-  },
-  {
-    name: '博客',
-    to: 'https://www.cnblogs.com/ganto',
-    type: 'link',
-  },
-  {
-    name: '开往',
-    to: 'https://www.travellings.cn/go.html',
-    type: 'link',
-  },
-  {
     name: '开发',
     to: '/dev',
-    type: 'router',
+  },
+  {
+    type: 'link',
+    name: '博客',
+    to: 'https://www.cnblogs.com/ganto',
+  },
+  {
+    type: 'link',
+    name: '开往',
+    to: 'https://www.travellings.cn/go.html',
+  },
+  {
+    type: 'btn',
+    name: 'Sunny',
+    event: toggleDark,
   },
 ]
 
 const toExternal = (link: string) => {
   window.open(link)
 }
+
+const changeBtn = (event: Function) => {
+  event()
+}
 </script>
 
 <template>
-  <div class="tabbar flex items-center">
-    <RouterLink v-for="item in tabbarData" custom :to="item.to" :key="item.name + item.to" v-slot="{ isActive, navigate }">
+  <div class="tabbar flex">
+    <RouterLink v-for="item in tabbarData" custom :to="item.to? item.to : ''" :key="item.name + item.to" v-slot="{ isActive, navigate }">
       <template v-if="item.type === 'router'">
         <span class="cursor-pointer font-light hover:font-black" :class="{ active: isActive }" @click="navigate">{{ item.name }}</span>
       </template>
-      <template v-else>
-        <span class="cursor-alias font-light hover:font-black" @click="toExternal(item.to)">{{ item.name }}</span>
+      <template v-else-if="item.type === 'link'">
+        <span class="cursor-alias font-light hover:font-black" @click="toExternal(item.link ? item.link : '')">{{ item.name }}</span>
+      </template>
+      <template v-else="item.type === 'btn'">
+        <span class="cursor-pointer" v-if="item.name === 'Sunny'">
+          <el-icon size="25" >
+            <Sunny @click="changeBtn(item.event ? item.event : ()=>{})" />
+          </el-icon>
+        </span>
+        <span v-else class="cursor-alias font-light hover:font-black" @click="changeBtn(item.event ? item.event : ()=>{})">{{ item.name }}</span>
       </template>
     </RouterLink>
   </div>
@@ -53,7 +79,7 @@ const toExternal = (link: string) => {
 <style lang='scss' scoped>
 .tabbar {
   font-size: 18px;
-  border-bottom: 4px solid rgb(89, 89, 89);
+  border-bottom: 4px solid var(--g-tabbar-border);
   width: fit-content;
   span {
     position: relative;
@@ -62,7 +88,7 @@ const toExternal = (link: string) => {
       display: inline-block;
       height: 4px;
       width: 0%;
-      background-color: #ffffff;
+      background-color: var(--g-tabbar-item-after);
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
