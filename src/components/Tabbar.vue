@@ -32,12 +32,12 @@ const tabbarData: Array<ITabbarItem> = [
   {
     type: 'link',
     name: '博客',
-    to: 'https://www.cnblogs.com/ganto',
+    link: 'https://www.cnblogs.com/ganto',
   },
   {
     type: 'link',
     name: '开往',
-    to: 'https://www.travellings.cn/go.html',
+    link: 'https://www.travellings.cn/go.html',
   },
   {
     type: 'btn',
