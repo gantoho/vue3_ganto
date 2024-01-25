@@ -9,7 +9,7 @@ export default defineStore('devStore', () => {
     imgState.value = await getImg({ method: 'get' }) as any
   }
 
-  getData()
+  // getData()
   
   return {
     imgState,

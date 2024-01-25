@@ -51,8 +51,16 @@ const toExternal = (link: string) => {
 }
 
 const changeBtn = (event: Function, $eve: MouseEvent) => {
-  document.documentElement.style.setProperty('--x', $eve.clientX + 'px')
-  document.documentElement.style.setProperty('--y', $eve.clientY + 'px')
+  const x = $eve.clientX
+  const y = $eve.clientY
+  // 计算鼠标点击位置距离视窗的最大圆半径
+  const endRadius = Math.hypot(
+    Math.max(x, innerWidth - x),
+    Math.max(y, innerHeight - y),
+  )
+  document.documentElement.style.setProperty('--x', x + 'px')
+  document.documentElement.style.setProperty('--y', y + 'px')
+  document.documentElement.style.setProperty('--r', endRadius + 'px')
   // 判断浏览器是否支持document.startViewTransition
   if ((document as any).startViewTransition) {
     // 如果支持就使用document.startViewTransition方法

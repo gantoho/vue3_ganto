@@ -16,7 +16,7 @@ html.dark {
 }
 
 ::view-transition-new(*) {
-  animation: clip .8s ease-in;
+  animation: clip .5s ease-in;
 }
 
 ::view-transition-old(root) {
@@ -28,7 +28,7 @@ html.dark {
 }
 
 html.dark::view-transition-old(*) {
-  animation: clip .8s ease-in reverse;
+  animation: clip .5s ease-in reverse;
 }
 
 html.dark::view-transition-new(*) {
@@ -48,6 +48,6 @@ html.dark::view-transition-new(root) {
     clip-path: circle(0% at var(--x) var(--y));
   }
   to{
-    clip-path: circle(100% at var(--x) var(--y));
+    clip-path: circle(var(--r) at var(--x) var(--y));
   }
 }

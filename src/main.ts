@@ -9,6 +9,9 @@ import './style.css'
 import '@/assets/styles/tailwind.css'
 import '@/assets/styles/dark/css-vars.css'
 
+console.log('call me by your name: i#ganto.me')
+console.log('look: https://ganto.me')
+
 const app = createApp(App)
 app.use(createPinia())
 app.use(router)
