@@ -37,7 +37,7 @@ const callMe: Array<ICallMe> = [
 </script>
 
 <template>
-  <div class="home">
+  <div class="about">
     <div>你好！我是一名前端开发</div>
     <div class="mt-4">
       常用的前端技术：JavaScript、Vue、React；目前在学：Golang、Rust、Java
@@ -60,12 +60,12 @@ const callMe: Array<ICallMe> = [
 </template>
 
 <style lang="scss" scoped>
-.home {
+.about {
   .text-link {
-    border-color: var(--g-home-link-border);
+    border-color: var(--g-about-link-border);
     
     &:hover {
-      border-color: var(--g-home-link-hover);
+      border-color: var(--g-about-link-hover);
     }
   }
 }

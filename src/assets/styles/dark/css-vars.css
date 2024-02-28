@@ -1,14 +1,14 @@
 html {
   --g-tabbar-border: #c9c9c9;
   --g-tabbar-item-after: #595959;
-  --g-home-link-border: #c9c9c9;
-  --g-home-link-hover: #374151;
+  --g-about-link-border: #c9c9c9;
+  --g-about-link-hover: #374151;
 }
 html.dark {
   --g-tabbar-border: #595959;
   --g-tabbar-item-after: #fff;
-  --g-home-link-border: #374151;
-  --g-home-link-hover: #fff;
+  --g-about-link-border: #374151;
+  --g-about-link-hover: #fff;
 }
 
 ::view-transition-old(*) {

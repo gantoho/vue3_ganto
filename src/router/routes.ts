@@ -11,7 +11,7 @@ export default [
       {
         path: '',
         name: 'home',
-        component: () => import('@/pages/Home.vue')
+        component: () => import('@/pages/Blogs.vue')
       }
     ]
   },
@@ -36,6 +36,18 @@ export default [
         path: '',
         name: 'dev',
         component: () => import('@/pages/Dev.vue')
+      }
+    ]
+  },
+  {
+    path: '/about',
+    name: 'layoutAbout',
+    component: () => import('@/layout/Layout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'about',
+        component: () => import('@/pages/About.vue')
       }
     ]
   },

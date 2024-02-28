@@ -3,7 +3,7 @@ import type { axiosRequestConfig } from '@/types'
 
 export default (config: axiosRequestConfig) => {
   const instance = axios.create({
-    baseURL: 'https://java.cevno.cn',
+    baseURL: 'https://java.ganto.cn',
     timeout: 5000,
   })
 
@@ -26,7 +26,7 @@ export default (config: axiosRequestConfig) => {
 
 export const getServerImgHttp = (config: axiosRequestConfig) => {
   const instance = axios.create({
-    baseURL: "https://yun.cevno.cn",
+    baseURL: "https://yun.ganto.cn",
     timeout: 5000
   })
 

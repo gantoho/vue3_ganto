@@ -10,6 +10,7 @@ const devStore = useDevStore();
 const regain = () => {
   devStore.getData();
 };
+devStore.getData();
 </script>
 
 <template>
@@ -25,7 +26,7 @@ const regain = () => {
       <img
         v-if="devStore.imgState"
         class="w-full m-auto max-h-96 object-contain"
-        :src="'https://files.cevno.cn/files/' + devStore.imgState"
+        :src="'https://files.ganto.cn/files/' + devStore.imgState"
       />
       <button
         class="opacity-0 absolute rounded-lg right-2 bottom-5 text-sm px-2 py-1 backdrop-blur-sm font-black border-2 border-white/10 bg-white/10 text-black/50 hover:bg-black/10 hover:text-white/50"

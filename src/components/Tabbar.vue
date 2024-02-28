@@ -21,6 +21,11 @@ const tabbarData: Array<ITabbarItem> = [
   },
   {
     type: 'router',
+    name: '关于',
+    to: '/about',
+  },
+  {
+    type: 'router',
     name: '书签',
     to: '/bookmarks',
   },
