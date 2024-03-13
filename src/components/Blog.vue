@@ -29,14 +29,17 @@ marked.setOptions({
 
 <template>
   <div class="blog">
-    <div v-html="marked(mdRaw)"></div>
+    <div class="code-block" v-html="marked(mdRaw)"></div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .blog {
-  background-color: #414141;
-  border-radius: 20px;
-  margin: 20px 0;
+  background-color: var(--g-blog-bg-color);
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+.blog + .blog {
+  margin-top: 20px;
 }
 </style>

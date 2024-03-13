@@ -21,3 +21,10 @@ body {
 #app {
   margin: 0 20px;
 }
+
+pre {
+  background-color: #414141;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}

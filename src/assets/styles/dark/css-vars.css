@@ -3,12 +3,14 @@ html {
   --g-tabbar-item-after: #595959;
   --g-about-link-border: #c9c9c9;
   --g-about-link-hover: #374151;
+  --g-blog-bg-color: #d4d4d4;
 }
 html.dark {
   --g-tabbar-border: #595959;
   --g-tabbar-item-after: #fff;
   --g-about-link-border: #374151;
   --g-about-link-hover: #fff;
+  --g-blog-bg-color: #8a8a8a;
 }
 
 ::view-transition-old(*) {

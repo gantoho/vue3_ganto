@@ -1,12 +1,10 @@
 <script setup lang="ts">
 // import { ref } from 'vue'
-import * as fs from 'fs'
+// import * as fs from 'fs'
 import Blog from '@/components/Blog.vue'
 
 const mdRaw = `
-# 0if04
-## rjeoajf
-![xxx](https://baidu.com/favicon.ico)
+# TypeScript
 \`\`\`ts
 const str: string = "Hello TS";
 console.log(str);
@@ -14,6 +12,7 @@ console.log(str);
 `
 
 const mdRaw1 = `
+# Golang
 \`\`\`go
 package main
 
@@ -27,6 +26,7 @@ func main() {
 `
 
 const mdRaw2 = `
+# Rust
 \`\`\`rust
 fn main() {
     let str = "Hello Rust";
@@ -35,7 +35,13 @@ fn main() {
 \`\`\`
 `
 
-console.log(fs)
+const mdRaw3 = `
+# 0if04
+## rjeoajf
+![xxx](https://baidu.com/favicon.ico)
+`
+
+// console.log(fs)
 // const dirEntries = fs.readdirSync('@/markdown');
 // for (const entry of dirEntries) {
 //   const filePath = `@/markdown/${entry}`;
@@ -60,11 +66,14 @@ console.log(fs)
     <Blog :mdRaw="mdRaw" />
     <Blog :mdRaw="mdRaw1" />
     <Blog :mdRaw="mdRaw2" />
-    <Blog />
+    <Blog :mdRaw="mdRaw3"/>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .blogs {
+  h1 {
+    margin-bottom: 20px;
+  }
 }
 </style>
