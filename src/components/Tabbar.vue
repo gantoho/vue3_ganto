@@ -39,11 +39,6 @@ const tabbarData: Array<ITabbarItem> = [
     name: '博客',
     link: 'https://www.cnblogs.com/ganto',
   },
-  // {
-  //   type: 'link',
-  //   name: '开往',
-  //   link: 'https://www.travellings.cn/go.html',
-  // },
   {
     type: 'btn',
     name: 'Sunny',
